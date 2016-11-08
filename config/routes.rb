@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   resources :items, except: [:new, :edit]
+  get '/artforms' => 'items#artforms'
+  get '/portfolios' => 'items#portfolios'
+  get '/sections' => 'items#sections'
+
   resources :examples, except: [:new, :edit]
   post '/sign-up' => 'users#signup'
   post '/sign-in' => 'users#signin'
