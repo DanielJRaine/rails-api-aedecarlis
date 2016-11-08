@@ -6,13 +6,16 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
 
-    render json: @items
+    # render json: @items
   end
 
   # GET /items/1
   # GET /items/1.json
   def show
-    render json: @item
+    item = Item.find(params[:id])
+    render json: item
+    # initial form
+    # render json: @item
   end
 
   # POST /items
@@ -21,9 +24,9 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
 
     if @item.save
-      render json: @item, status: :created, location: @item
+      render json: item
     else
-      render json: @item.errors, status: :unprocessable_entity
+      render json: item.errors, status: :unprocessable_entity
     end
   end
 
@@ -49,11 +52,11 @@ class ItemsController < ApplicationController
 
   private
 
-    def set_item
-      @item = Item.find(params[:id])
-    end
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
-    def item_params
-      params.require(:item).permit(:name, :body, :artform, :portfolio, :section)
-    end
+  def item_params
+    params.require(:item).permit(:name, :body, :artform, :portfolio, :section)
+  end
 end
