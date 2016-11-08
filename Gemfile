@@ -7,10 +7,12 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'rack-cors', require: 'rack/cors'
 gem 'pg'
 gem 'bcrypt', '~> 3.1.11'
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'aws-sdk'
 
 group :production do
   gem 'rails_12factor', '~> 0.0.3'
-  gem 'aws-sdk-v1'
+  gem 'aws-sdk'
 end
 
 group :development, :test do

@@ -6,3 +6,4 @@ curl -v http://localhost:4741/items \
   -F "item[artform]=visual" \
   -F "item[portfolio]=fine-arts" \
   -F "item[section]=musician-portraits"
+  
