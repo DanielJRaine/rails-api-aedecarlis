@@ -1,3 +1,3 @@
 class ItemSerializer < ActiveModel::Serializer
-  attributes :id, :name, :body, :artform, :portfolio, :section
+  attributes :id, :name, :body, :artform, :portfolio, :section, :upload_url
 end
