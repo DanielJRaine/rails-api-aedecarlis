@@ -12,8 +12,8 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
-    item = Item.find(params[:id])
-    render json: item
+    @item = Item.find(params[:id])
+    render json: @item
     # initial form
     # render json: @item
   end
@@ -24,9 +24,9 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
 
     if @item.save
-      render json: item
+      render json: @item
     else
-      render json: item.errors, status: :unprocessable_entity
+      render json: @item.errors, status: :unprocessable_entity
     end
   end
 
