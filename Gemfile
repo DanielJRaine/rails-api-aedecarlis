@@ -10,6 +10,8 @@ gem 'bcrypt', '~> 3.1.11'
 
 group :production do
   gem 'rails_12factor', '~> 0.0.3'
+  gem 'aws-sdk-v1'
+  gem 'dotenv-rails'
 end
 
 group :development, :test do
