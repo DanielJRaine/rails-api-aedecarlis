@@ -5,8 +5,7 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = Item.all
-
-    # render json: @items
+    render json: @items
   end
 
   # GET /items/1
