@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :items, except: [:new, :edit]
+  resources :items, except: [:new]
   get '/artforms' => 'items#artforms'
   get '/portfolios' => 'items#portfolios'
   get '/sections' => 'items#sections'
