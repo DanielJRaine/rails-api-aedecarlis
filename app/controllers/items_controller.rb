@@ -51,8 +51,6 @@ class ItemsController < ProtectedController
     head :no_content
   end
 
-  private :set_item, :item_params
-
   def set_item
     # @item = Item.find(params[:id])
     @item = current_user.items.find(params[:id])
@@ -61,4 +59,5 @@ class ItemsController < ProtectedController
   def item_params
     params.require(:item).permit(:name, :body, :artform, :portfolio, :section)
   end
+  private :set_item, :item_params
 end
