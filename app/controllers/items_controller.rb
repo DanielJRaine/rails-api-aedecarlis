@@ -11,8 +11,8 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
-    @item = Item.find(params[:id])
-    render json: @item
+    # @item = Item.find(params[:id])
+    render json: Item.find(params[:id])
     # initial form
     # render json: @item
   end
@@ -20,10 +20,11 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(item_params)
+    # @item = Item.new(item_params)
+    @item = current_user.examples.build(item_params)
 
     if @item.save
-      render json: @item
+      render json: @item, status: :created, location: @item
     else
       render json: @item.errors, status: :unprocessable_entity
     end
@@ -49,10 +50,11 @@ class ItemsController < ApplicationController
     head :no_content
   end
 
-  private
+  private :set_item, :item_params
 
   def set_item
-    @item = Item.find(params[:id])
+    # @item = Item.find(params[:id])
+    @item = current_user.items.find(params[:id])
   end
 
   def item_params
