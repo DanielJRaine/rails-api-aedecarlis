@@ -21,8 +21,8 @@ class ItemsController < ProtectedController
   # POST /items
   # POST /items.json
   def create
-    # @item = Item.new(item_params)
-    @item = current_user.items.build(item_params)
+    @item = Item.new(item_params)
+    # @item = current_user.items.build(item_params)
 
     if @item.save
       render json: @item, status: :created, location: @item
@@ -52,8 +52,8 @@ class ItemsController < ProtectedController
   end
 
   def set_item
-    # @item = Item.find(params[:id])
-    @item = current_user.items.find(params[:id])
+    @item = Item.find(params[:id])
+    # @item = current_user.items.find(params[:id])
   end
 
   def item_params
